@@ -1,0 +1,82 @@
+### Registrar um Tutor
+POST http://localhost:3000/tutor
+Content-Type: application/json
+
+{
+  "cpf": "12345678900",
+  "nome": "João Silva",
+  "email": "joao@example.com",
+  "senha": "senha123"
+}
+
+### Listar Tutores
+GET http://localhost:3000/tutor
+
+### Obter um Tutor por ID
+GET http://localhost:3000/tutor/1
+
+### Atualizar um Tutor
+PUT http://localhost:3000/tutor/2
+Content-Type: application/json
+
+{
+  "cpf": "12345678900",
+  "nome": "João Silva Atualizado",
+  "email": "joao@example.com",
+  "senha": "nova_senha123"
+}
+
+### Deletar um Tutor
+DELETE http://localhost:3000/tutor/1
+
+### Adicionar um Pet
+POST http://localhost:3000/pet
+Content-Type: application/json
+
+{
+  "codigo_pet": "PET123",
+  "nome_pet": "Rex",
+  "genero_pet": "Masculino",
+  "altura_valor": 20.0,
+  "tutorId": 1,
+  "alturaId": 2
+}
+
+### Listar Pets
+GET http://localhost:3000/pet
+
+### Obter um Pet por ID
+GET http://localhost:3000/pet/1
+
+### Atualizar um Pet
+PUT http://localhost:3000/pet/1
+Content-Type: application/json
+
+{
+  "codigo_pet": "PET123",
+  "nome_pet": "Rex Atualizado",
+  "genero_pet": "Masculino",
+  "altura_valor": 25.0,
+  "tutorId": 1,
+  "alturaId": 2
+}
+
+### Deletar um Pet
+DELETE http://localhost:3000/pet/1
+
+### Autenticação JWT
+POST http://localhost:3000/auth/login
+Content-Type: application/json
+
+{
+  "email": "joao@example.com",
+  "senha": "nova_senha123"
+}
+
+### Consultar Pets por Tutor
+GET http://localhost:3000/tutor/1/pets
+x-access-token: seu_token_jwt_aqui
+
+### Consultar Pets por Altura
+GET http://localhost:3000/altura/2/pets
+x-access-token: seu_token_jwt_aqui
