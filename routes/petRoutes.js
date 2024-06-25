@@ -1,7 +1,7 @@
 // routes/petRoutes.js
 import express from 'express';
 import { createPet, getPets, getPetById, updatePet, deletePet } from '../controllers/petController.js';
-import { authenticateJWT } from '../middleware/authMiddleware.js';
+import authenticateJWT from '../middleware/authMiddleware.js';  // Mudança aqui para import default
 
 const router = express.Router();
 

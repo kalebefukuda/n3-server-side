@@ -1,82 +1,88 @@
 ### Registrar um Tutor
-POST http://localhost:3000/tutor
+POST http://localhost:3000/auth/register
 Content-Type: application/json
 
 {
-  "cpf": "12345678900",
-  "nome": "João Silva",
+  "cpf": "12345678902",
+  "nome": "Joao Silva",
   "email": "joao@example.com",
   "senha": "senha123"
 }
 
-### Listar Tutores
-GET http://localhost:3000/tutor
 
-### Obter um Tutor por ID
-GET http://localhost:3000/tutor/1
-
-### Atualizar um Tutor
-PUT http://localhost:3000/tutor/2
+### Login de Tutor
+POST http://localhost:3000/auth/login
 Content-Type: application/json
 
 {
-  "cpf": "12345678900",
-  "nome": "João Silva Atualizado",
-  "email": "joao@example.com",
+  "email": "pedro@example.com",
+  "senha": "senha123"
+}
+
+### Listar Todos os Tutores
+GET http://localhost:3000/tutors
+Authorization: Bearer <Your_Token_Here>
+
+### Obter um Tutor por ID
+GET http://localhost:3000/tutors/7
+Authorization: Bearer <Your_Token_Here>
+
+### Atualizar um Tutor
+PUT http://localhost:3000/tutors/7
+Content-Type: application/json
+Authorization: Bearer <Your_Token_Here>
+
+{
+  "email": "updated_joao@example.com",
   "senha": "nova_senha123"
 }
 
 ### Deletar um Tutor
-DELETE http://localhost:3000/tutor/1
+DELETE http://localhost:3000/tutors/7
+Authorization: Bearer <Your_Token_Here>
 
-### Adicionar um Pet
-POST http://localhost:3000/pet
+### Registrar um Pet
+POST http://localhost:3000/pets
 Content-Type: application/json
+Authorization: Bearer <Your_Token_Here>
 
 {
   "codigo_pet": "PET123",
   "nome_pet": "Rex",
   "genero_pet": "Masculino",
   "altura_valor": 20.0,
-  "tutorId": 1,
-  "alturaId": 2
+  "tutorId": 9
 }
 
-### Listar Pets
-GET http://localhost:3000/pet
+### Listar Todos os Pets
+GET http://localhost:3000/pets
+Authorization: Bearer <Your_Token_Here>
 
 ### Obter um Pet por ID
-GET http://localhost:3000/pet/1
+GET http://localhost:3000/pets/1
+Authorization: Bearer <Your_Token_Here>
 
 ### Atualizar um Pet
-PUT http://localhost:3000/pet/1
+PUT http://localhost:3000/pets/1
 Content-Type: application/json
+Authorization: Bearer <Your_Token_Here>
 
 {
   "codigo_pet": "PET123",
-  "nome_pet": "Rex Atualizado",
+  "nome_pet": "Rex Updated",
   "genero_pet": "Masculino",
   "altura_valor": 25.0,
-  "tutorId": 1,
-  "alturaId": 2
+  "tutorId": 9
 }
 
 ### Deletar um Pet
-DELETE http://localhost:3000/pet/1
-
-### Autenticação JWT
-POST http://localhost:3000/auth/login
-Content-Type: application/json
-
-{
-  "email": "joao@example.com",
-  "senha": "nova_senha123"
-}
+DELETE http://localhost:3000/pets/1
+Authorization: Bearer <Your_Token_Here>
 
 ### Consultar Pets por Tutor
-GET http://localhost:3000/tutor/1/pets
-x-access-token: seu_token_jwt_aqui
+GET http://localhost:3000/tutors/1/pets
+Authorization: Bearer <Your_Token_Here>
 
 ### Consultar Pets por Altura
 GET http://localhost:3000/altura/2/pets
-x-access-token: seu_token_jwt_aqui
+Authorization: Bearer <Your_Token_Here>
