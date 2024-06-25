@@ -32,3 +32,8 @@ CREATE TABLE IF NOT EXISTS Pet (
     FOREIGN KEY (alturaId) REFERENCES Altura(id_altura),
     FOREIGN KEY (tutorId) REFERENCES Tutor(id)
 );
+
+-- Cria o usuário
+CREATE USER 'joao@example'@'localhost' IDENTIFIED BY 'senha123';
+GRANT ALL PRIVILEGES ON tutor_pet.* TO 'joao@example'@'localhost';
+FLUSH PRIVILEGES;

@@ -17,14 +17,14 @@ const Pet = sequelize.define('Pet', {
     alturaId: {
         type: DataTypes.INTEGER,
         references: {
-            model: Altura,
+            model: 'Altura',
             key: 'id_altura'
         }
     },
     tutorId: {
         type: DataTypes.INTEGER,
         references: {
-            model: Tutor,
+            model: 'Tutors',
             key: 'id'
         }
     }
