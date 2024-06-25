@@ -29,6 +29,7 @@ const Pet = sequelize.define('Pet', {
         }
     }
 }, {
+    tableName: 'pet',
     timestamps: false
 });
 
