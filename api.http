@@ -61,11 +61,11 @@ GET http://localhost:3000/pets
 Authorization: Bearer {{tokenacc.response.body.token}}
 
 ### Obter um Pet por ID
-GET http://localhost:3000/pets/2
+GET http://localhost:3000/pets/4
 Authorization: Bearer {{tokenacc.response.body.token}}
 
 ### Atualizar um Pet
-PUT http://localhost:3000/pets/1
+PUT http://localhost:3000/pets/4
 Content-Type: application/json
 Authorization: Bearer {{tokenacc.response.body.token}}
 
@@ -78,7 +78,7 @@ Authorization: Bearer {{tokenacc.response.body.token}}
 }
 
 ### Deletar um Pet
-DELETE http://localhost:3000/pets/1
+DELETE http://localhost:3000/pets/3
 Authorization: Bearer {{tokenacc.response.body.token}}
 
 ### Consultar Pets por Tutor
@@ -86,5 +86,5 @@ GET http://localhost:3000/tutors/1/pets
 Authorization: Bearer {{tokenacc.response.body.token}}
 
 ### Consultar Pets por Altura
-GET http://localhost:3000/altura/1/pets
+GET http://localhost:3000/altura/3/pets
 Authorization: Bearer {{tokenacc.response.body.token}}

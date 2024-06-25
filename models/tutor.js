@@ -1,32 +1,32 @@
 // models/tutor.js
-import { Model, DataTypes } from 'sequelize';
+import { DataTypes } from 'sequelize';
 import sequelize from '../config/database.js';
+import Pet from './pet.js';
 
-class Tutor extends Model {}
-
-Tutor.init({
-  cpf: {
-    type: DataTypes.STRING(11),
-    allowNull: false
+const Tutor = sequelize.define('Tutor', {
+  id: {
+    type: DataTypes.INTEGER,
+    autoIncrement: true,
+    primaryKey: true,
   },
   nome: {
     type: DataTypes.STRING,
-    allowNull: false
+    allowNull: false,
   },
   email: {
     type: DataTypes.STRING,
     allowNull: false,
-    unique: true
   },
-  senha: {
+  cpf: {
     type: DataTypes.STRING,
-    allowNull: false
-  }
+    allowNull: false,
+  },
 }, {
-  sequelize,
-  modelName: 'tutor',
-  tableName: 'TUTORS',  // Assegure-se de definir o nome da tabela se estiver usando maiúsculas
-  timestamps: false  // Ajuste conforme a necessidade de createdAt e updatedAt
+  tableName: 'tutors',
+  timestamps: false,
 });
+
+Tutor.hasMany(Pet, { foreignKey: 'tutorId' });
+Pet.belongsTo(Tutor, { foreignKey: 'tutorId' });
 
 export default Tutor;
